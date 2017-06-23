@@ -1,12 +1,6 @@
 import pynder
 import tokengetter
-#facebook authentication info will be in auth.info as follows:
-#line 1: facebook id number
-#line 2: email
-#line 3: password
-
-#auth_info = open("auth.info").readlines()
-#[l.strip('\n\r') for l in auth_info]
+#see tokengetter.py for info on how to configure auth.info
 
 fb_access_token = (tokengetter.get_access_token(tokengetter.auth_info[1], tokengetter.auth_info[2]))
 #output for testing verification purposes only
