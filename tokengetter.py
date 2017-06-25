@@ -9,8 +9,9 @@ FB_AUTH = "https://www.facebook.com/v2.6/dialog/oauth?redirect_uri=fb46489138685
 #line 2: email
 #line 3: password
 
-auth_info = open("auth.info").readlines() #calls from auth.info
-[l.strip('\n\r') for l in auth_info] #strip newline characters
+auth_stream = open("auth.info")
+auth_info = [line.rstrip() for line in auth_stream.readlines()]
+auth_stream.close()
 
 def get_access_token(email, password):
     s = robobrowser.RoboBrowser(user_agent=MOBILE_USER_AGENT, parser="lxml")
