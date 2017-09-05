@@ -12,6 +12,11 @@ auth_stream.close()
 #line 2: email
 #line 3: password
 
+#FBID = auth_info[0]
+#email = auth_info[1]
+#password = auth_info[2]
+
+
 ##this block of code was written by someone else
 MOBILE_USER_AGENT = "Mozilla/5.0 (Linux; U; en-gb; KFTHWI Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.16 Safari/535.19"
 FB_AUTH = "https://www.facebook.com/v2.6/dialog/oauth?redirect_uri=fb464891386855067%3A%2F%2Fauthorize%2F&display=touch&state=%7B%22challenge%22%3A%22IUUkEUqIGud332lfu%252BMJhxL4Wlc%253D%22%2C%220_auth_logger_id%22%3A%2230F06532-A1B9-4B10-BB28-B29956C71AB1%22%2C%22com.facebook.sdk_client_state%22%3Atrue%2C%223_method%22%3A%22sfvc_auth%22%7D&scope=user_birthday%2Cuser_photos%2Cuser_education_history%2Cemail%2Cuser_relationship_details%2Cuser_friends%2Cuser_work_history%2Cuser_likes&response_type=token%2Csigned_request&default_audience=friends&return_scopes=true&auth_type=rerequest&client_id=464891386855067&ret=login&sdk=ios&logger_id=30F06532-A1B9-4B10-BB28-B29956C71AB1&ext=1470840777&hash=AeZqkIcf-NEW6vBd"
@@ -32,18 +37,12 @@ def get_access_token(email, password):
     return access_token
 ##end borrowed block of code
 
-
-fb_access_token = (get_access_token(auth_info[1], auth_info[2]))
-
-session = pynder.Session(auth_info[0], fb_access_token)
-
+FBTOKEN = (get_access_token(email=auth_info[1], password=auth_info[2]))
+session = pynder.Session(facebook_id=auth_info[0], facebook_token=FBTOKEN)
 #output for testing verification purposes only
 print(auth_info[0])
 print(auth_info[1])
-print(auth_info[2])
-print(fb_access_token)
+#print(auth_info[2]) #this line prints facebook password to the screen! commented out by default
+print(FBTOKEN)
 
-#session.matches() # get users you have already been matched with
-#session.update_location(latitude, longitude) # updates latitude and longitude for your profile
-#session.profile  # your profile. If you update its attributes they will be updated on Tinder.
-#users = session.nearby_users() # returns a iterable of users nearby
+session.update_location(32.78439239999999, -96.7801849) # updates latitude and longitude for your profile
