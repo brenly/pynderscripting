@@ -40,9 +40,18 @@ def get_access_token(email, password):
 FBTOKEN = (get_access_token(email=auth_info[1], password=auth_info[2]))
 session = pynder.Session(facebook_id=auth_info[0], facebook_token=FBTOKEN)
 #output for testing verification purposes only
-print(auth_info[0])
-print(auth_info[1])
-#print(auth_info[2]) #this line prints facebook password to the screen! commented out by default
-print(FBTOKEN)
+#print(auth_info[0])
+#print(auth_info[1])
+
+#THIS NEXT LINE SHOULD BE COMMENTED OUT!! IT IS YOUR FACEBOOK PASSWORD!!
+#print(auth_info[2]) #this line prints facebook password to the screen!
+
+#print(FBTOKEN)
+
+session.profile #returns username from tinder to confirm 100% working auth
 
 session.update_location(32.78439239999999, -96.7801849) # updates latitude and longitude for your profile
+
+session.matches()
+
+users = session.nearby_users()
