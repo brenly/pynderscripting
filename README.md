@@ -1,5 +1,5 @@
-*THIS CODE MIGHT NOT WORK ANYMORE DUE TO RECENT CHANGES. CHECK PYNDER PROJECT PAGE FOR UPDATES*
+*THIS CODE MIGHT NOT WORK ANYMORE DUE TO RECENT CHANGES IN TINDER. CHECK PYNDER PROJECT PAGE FOR UPDATES*
 
 Pynder scripting sandbox by Brenly
 
-This folder demonstrates random experiments I have done with Pynder capabilities in python.
+This is a tinder bot that I wrote.
